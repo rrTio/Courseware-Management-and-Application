@@ -1,7 +1,11 @@
-function forgotPassword() {
-  window.location.href = "./forgotPassword.php";
+function openAdminLogin(){
+    window.location.href = "./loginAdmin.php";
 }
 
-function createAccount() {
-  window.location.href = "./register.php";
+function openFacultyLogin(){
+    window.location.href = "./loginFaculty.php";
+}
+
+function openStudentLogin(){
+    window.location.href = "./loginStudent.php"
 }

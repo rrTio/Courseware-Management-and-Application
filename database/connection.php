@@ -50,8 +50,22 @@ $createStudentTable = "CREATE TABLE IF NOT EXISTS `studentTable`(
     `imageLocation` TEXT
 );";
 
-$createStudentsList = "CREATE TABLE IF NOT EXISTS `studentsList`(
-
+$createFacultyTable = "CREATE TABLE IF NOT EXISTS `facultyTable`(
+    `facultyID` TEXT,
+    `firstName` TEXT,
+    `middleName` TEXT,
+    `lastName` TEXT,
+    `yearLevel` VARCHAR(2),
+    `birthMonth` VARCHAR(2),
+    `birthDay` VARCHAR(2),
+    `birthYear` VARCHAR(4),
+    `username` TEXT,
+    `email` TEXT,
+    `userPassword` TEXT,
+    `confirmPassword` TEXT,
+    `imageLocation` TEXT
 );";
 mysqli_query($conn, $createAdminTable);
+mysqli_query($conn, $createStudentTable);
+mysqli_query($conn, $createFacultyTable);
 ?>

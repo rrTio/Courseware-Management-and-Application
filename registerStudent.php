@@ -1,5 +1,5 @@
 <?php 
-$id = date("Ymdhis")
+$id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
 ?>
 
 <!DOCTYPE html>
