@@ -18,11 +18,9 @@
                 <div class="col-sm student">
                     <button type="submit" onclick="openStudentLogin()" name="btnLogin" class="btn btn-primary btn-block btn-large">Login as Student</button>
                 </div>
-
                 <div class="col-sm faculty">
                     <button type="submit" onclick="openFacultyLogin()" name="btnLogin" class="btn btn-primary btn-block btn-large">Login as Faculty</button>
                 </div>
-
                 <div class="col-sm admin">
                     <button type="submit" onclick="openAdminLogin()" name="btnLogin" class="btn btn-primary btn-block btn-large">Login as Admin</button>
                 </div>

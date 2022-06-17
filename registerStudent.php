@@ -1,12 +1,12 @@
 <?php 
-$id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
+$id = date("Y") . "-" . "03" . substr(hexdec(uniqid()), 12) . date("s");
 ?>
 
 <!DOCTYPE html>
 <html lang="en" >
 <head>
     <meta charset="UTF-8" http-equiv="Content-Type">
-    <title>Registration Form</title>  
+    <title>Student Registration Form</title>  
     <link rel="icon" href="./assets/images/logo.png">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -23,11 +23,11 @@ $id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
 <body>
     <section>
             <div class="container mt-5">
-                <form name="officials" method="POST" action="./database/database.php" enctype="multipart/form-data">
-                    <input type="hidden" name='adminId' value='<?php echo $id?>'>
+                <form name="officials" method="POST" action="./database/insertDB.php" enctype="multipart/form-data">
+                    <input type="hidden" name='studentId' value='<?php echo $id?>'>
                     <div class="row mb-2">
                         <div class="col-md-12">
-                            <h1>Registration Form</h1>
+                            <h1>Student Registration Form</h1>
                             <h4>Basic Information</h4>
                             <h6>ID: <?php echo $id?></h4>
                         </div>
@@ -36,6 +36,8 @@ $id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
                         <div class="col-md-2" id="imager">
                             <input type="file" name="official" accept="image/*" capture="camera">
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-10">
                             <div class="row mb-4">
                                 <div class="col-md-6">
@@ -58,13 +60,8 @@ $id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
                                         <label class="form-label" for="mName">MIDDLE NAME</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input class="form-control form-control-lg" type="text" id="alias" name="nickName" placeholder="alias" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
-                                        <label class="form-label" for="alias">NICKNAME</label>
-                                    </div>
-                                </div>
                             </div>
+
                             <div class="row mb-4">
                                 <div class="col-md-3 pt-3">
                                     <div class="row mb-3">
@@ -72,7 +69,7 @@ $id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
                                             <p>
                                             </p>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <h6>BIRTHDATE:
                                             </h6>
                                         </div>
@@ -342,11 +339,11 @@ $id = date("Y") . "-" . substr(hexdec(uniqid()), 12) . date("s");
                         </div>
                     </div>                    
                     <center>
-                    <div class="row mb-5">
-                        <div class="col-md-12">
-                            <button type="submit" name="btnRegisterAccount" onClick="checkValidation()" class="btn btn-primary btn-block btn-large">Register</button>
+                        <div class="row mb-5">
+                            <div class="col-md-12">
+                                <button type="submit" name="btnRegisterStudent" onClick="checkValidation()" class="btn btn-primary btn-block btn-large">Register</button>
+                            </div>
                         </div>
-                    </div>
                     </center>
                 </form>
             </div>

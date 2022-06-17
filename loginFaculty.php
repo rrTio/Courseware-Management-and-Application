@@ -10,19 +10,19 @@
     <script src="./js/login.js" type="text/javascript"></script>
   </head>
   <body>
-  <div class="login">
-    <h1>Faculty Login</h1>
-    <form action="./database/database.php" method="post">
-      <input type="text" name="username" placeholder="Username or Email" required="required" />
-      <input type="password" name="password" placeholder="Password" required="required" />
-      <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Enter</button>
-      <center class="marginButton">
-        <a id="forgotPassword" onClick="return forgotPassword()">Forgot password?</a>
-      </center>
-      <center class="marginButton">
-      <a id="createAccount" onClick="return createAccountFaculty()">Create Account</a>
-      </center>
-    </form>
-  </div>
+    <div class="login">
+      <h1>Faculty Login</h1>
+      <form action="./database/database.php" method="post">
+        <input type="text" name="username" placeholder="Username or Email" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Enter</button>
+        <center class="marginButton">
+          <a id="forgotPassword" onClick="return forgotPassword()">Forgot password?</a>
+        </center>
+        <center class="marginButton">
+          <a id="createAccount" onClick="return createAccountFaculty()">Create Account</a>
+        </center>
+      </form>
+    </div>
   </body>
 </html>
