@@ -62,9 +62,9 @@ $program = $_SESSION['program'];
         <table class="table table-striped table-hover">
           <thead>
             <tr>
+              <th data-field="Program Code" data-sortable="true">Program Code</th>
               <th data-field="subjectCode" data-sortable="true">Subject Code</th>
               <th data-field="subject" data-sortable="true">Subject Name</th>
-              <th data-field="faculty" data-sortable="true">Faculty</th>
               <th data-field="action" data-sortable="true">Action</th>
             </tr>
           </thead>
@@ -80,9 +80,9 @@ $program = $_SESSION['program'];
               if (mysqli_num_rows($result) > 0) {
                 while ($subjects = mysqli_fetch_assoc($result)) {
                   echo "<tr>"
-                    . "<td>" . $subjects['subjectCode']
+                    . "<td>" . $subjects['programName']
+                    . "</td><td>" . $subjects['subjectCode']
                     . "</td><td>" . $subjects['subject']
-                    . "</td><td>" . $subjects['facultyName']
                     . "<td><button name='btnEncodeStudent' type='submit' value=" . $subjects['subjectCode'] . " class='btn btn-success text-dark bg-gradient fa fa-plus'>Encode Subject</button></td>"
                     . "</tr>";
                 }

@@ -39,7 +39,7 @@ $facultyID = $_SESSION['facultyID'];
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
       <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Students</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Students</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>

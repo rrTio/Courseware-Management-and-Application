@@ -3,7 +3,7 @@ include_once('./database/connection.php');
 session_start();
 $firstName = $_SESSION['firstName'];
 $fullName = $_SESSION['fullname'];
-$adminID = $_SESSION['adminID'];
+$facultyID = $_SESSION['facultyID'];
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ $adminID = $_SESSION['adminID'];
 
 <head>
   <meta charset="UTF-8">
-  <title>Enrollees</title>
+  <title>Enrollment</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -33,15 +33,16 @@ $adminID = $_SESSION['adminID'];
         <h5 class="fs-6 mb-0">
           <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $fullName; ?></a>
         </h5>
-        <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $adminID ?></p>
+        <p class="mt-1 mb-0 headPlace"> &nbsp; <?php echo $facultyID ?></p>
       </div>
     </div>
     <ul class="categories list-unstyled">
-        <li><i class="fa fa-home sideIcons"></i><a href="dashboardAdmin.php"> Dashboard</a></li>
-        <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="adminSubjects.php"> Add Subject</a></li>
-        <li><i class="fa fa-list sideIcons"></i><a href="adminEnrollees.php"> Enrollees</a></li>
-        <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
+      <li><i class="fa fa-home sideIcons"></i><a href="dashboardStudent.php"> Dashboard</a></li>
+      <li><i class="fa fa-book-open sideIcons"></i><a href="studentSubjects.php"> Subjects</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Tasks</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="studentEnrollment.php"> Enrollment</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Academics</a></li>
+      <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
 
@@ -49,8 +50,9 @@ $adminID = $_SESSION['adminID'];
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Enrollees</h1>
+          <h1 class="fs-3">Enrolled Students</h1>
           <p class="mb-0">Hello <?php echo $firstName?></p>
+          <p class="mb-0">Subjects Can Only Be Seen Once Validated Upon Enrollment</p>
         </div>
       </div>
     <section class="subjects">
@@ -60,45 +62,41 @@ $adminID = $_SESSION['adminID'];
           <thead>
             <tr>
               <th data-field="subjectCode" data-sortable="true">Program Name</th>
-              <th data-field="subject" data-sortable="true">Student ID</th>
-              <th data-field="faculty" data-sortable="true">Student Name</th>
-              <th data-field="faculty" data-sortable="true">Student Code</th>
-              <th data-field="faculty" data-sortable="true">Subject Name</th>
-              <th data-field="faculty" data-sortable="true">Faculty Code</th>
-              <th data-field="faculty" data-sortable="true">Section</th>
-              <th data-field="action" data-sortable="true">Action</th>
+              <th data-field="subjectCode" data-sortable="true">Subject Code</th>
+              <th data-field="subject" data-sortable="true">Subject Name</th>
+              <th data-field="faculty" data-sortable="true">Faculty</th>
+              <th data-field="action" data-sortable="true">Section</th>
             </tr>
           </thead>
           <form method="POST" action="./database/insertDB.php">
+            <input type="hidden" name="studentName" value="<?php echo $fullName?>">
+            <input type="hidden" name="facultyID" value="<?php echo $facultyID?>">
+            <input type="hidden" name="program" value="<?php echo $program?>">
             <tbody>
-            <?php
-            include_once("./database/connection.php");
-            $getCourse = "SELECT * FROM enrolleeTable";
-            $result = mysqli_query($conn, $getCourse);
-            if (mysqli_num_rows($result) > 0) {
+              <?php
+              include_once("./database/connection.php");
+              $getCourse = "SELECT * FROM enrolled WHERE facultyName = '$facultyID';";
+              $result = mysqli_query($conn, $getCourse);
+              if (mysqli_num_rows($result) > 0) {
                 while ($subjects = mysqli_fetch_assoc($result)) {
-                echo "<tr>"
+                  echo "<tr>"
                     . "<td>" . $subjects['programName']
-                    . "</td><td>" . $subjects['studentID']
-                    . "</td><td>" . $subjects['studentName']
                     . "</td><td>" . $subjects['subjectCode']
                     . "</td><td>" . $subjects['subjectName']
                     . "</td><td>" . $subjects['facultyName']
-                    . "</td><td>" . $subjects['section']
-                    . "<td><button name='btnVerifyStudent' title='Verify Student' type='submit' value=" . $subjects['studentID'] . " class='btn btn-success text-dark bg-gradient fa fa-check'></button>
-                            <button name='btnDenyStudent' title='Deny Student' type='submit' value=" . $subjects['studentID'] . " class='btn btn-success text-dark bg-danger fa fa-trash'></button></td>"
+                    . "</td><td>" . $subjects['section'] . "</td>"
                     . "</tr>";
                 }
-            }
-            ?>
+              }
+              ?>
             </tbody>
-        </form>
+          </form>
         </table>
-        </div>
+      </div>
     </section>
 
     </div>
-    </section>
+  </section>
 </body>
 
 </html>

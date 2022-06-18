@@ -100,8 +100,8 @@ $adminID = $_SESSION['adminID'];
                                 $firstName = $faculty['firstName'];
                                 $middleName = $faculty['middleName'];
                                 $lastName = $faculty['lastName'];
-                                $fullName = $lastName . ", " . $firstName . " " . $middleName;
-                                echo "<option value=".$fullName.">".$fullName."</option>";
+                                $fullName = $lastName . ", " . $firstName;
+                                echo "<option value=".$faculty['facultyID'].">".$fullName."</option>";
                               }
                             }
                           ?>
