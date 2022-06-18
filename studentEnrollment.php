@@ -12,7 +12,7 @@ $program = $_SESSION['program'];
 
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
+  <title>Enrollment</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -49,57 +49,48 @@ $program = $_SESSION['program'];
   </aside>
 
   <section>
-    <form name="position">
-      
-    </form>
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Welcome to Student Dashboard</h1>
+          <h1 class="fs-3">Student Enrollment</h1>
           <p class="mb-0">Hello <?php echo $firstName?></p>
         </div>
       </div>
-      <section class="statistics mt-4">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
-              <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">SUBJECTS</h3> <span class="d-block ms-2">COUNT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
-              <i class="uil-user fs-2 text-center bg-danger rounded-circle"></i>
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">TASKS</h3> <span class="d-block ms-2">COUNT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center p-3">
-              <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">ACADEMICS</h3> <span class="d-block ms-2">COUNT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="officials">
+    <section class="subjects">
       <div class="container">
-        <h2>&nbsp;Tasks</h2>
-
-
+        <h2>&nbsp;Subjects</h2>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th data-field="subjectCode" data-sortable="true">Subject Code</th>
+              <th data-field="subject" data-sortable="true">Subject Name</th>
+              <th data-field="faculty" data-sortable="true">Faculty</th>
+              <th data-field="action" data-sortable="true">Action</th>
+            </tr>
+          </thead>
+          <form method="POST" action="./database/insertDB.php">
+            <input type="hidden" name="studentName" value="<?php echo $fullName?>">
+            <input type="hidden" name="studentID" value="<?php echo $studentID?>">
+            <input type="hidden" name="program" value="<?php echo $program?>">
+            <tbody>
+              <?php
+              include_once("./database/connection.php");
+              $getCourse = "SELECT * FROM courselist";
+              $result = mysqli_query($conn, $getCourse);
+              if (mysqli_num_rows($result) > 0) {
+                while ($subjects = mysqli_fetch_assoc($result)) {
+                  echo "<tr>"
+                    . "<td>" . $subjects['subjectCode']
+                    . "</td><td>" . $subjects['subject']
+                    . "</td><td>" . $subjects['facultyName']
+                    . "<td><button name='btnEncodeStudent' type='submit' value=" . $subjects['subjectCode'] . " class='btn btn-success text-dark bg-gradient fa fa-plus'>Encode Subject</button></td>"
+                    . "</tr>";
+                }
+              }
+              ?>
+            </tbody>
+          </form>
+        </table>
       </div>
     </section>
 

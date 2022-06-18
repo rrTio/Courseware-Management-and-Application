@@ -39,6 +39,7 @@ $createStudentTable = "CREATE TABLE IF NOT EXISTS `studentTable`(
     `middleName` TEXT,
     `lastName` TEXT,
     `username` TEXT,
+    `program` TEXT,
     `birthMonth` VARCHAR(2),
     `birthDay` VARCHAR(2),
     `birthYear` VARCHAR(4),
@@ -73,7 +74,38 @@ $createFacultyTable = "CREATE TABLE IF NOT EXISTS `facultyTable`(
     `imageLocation` TEXT
 );";
 
+$createEnrolleeTable = "CREATE TABLE IF NOT EXISTS `enrolleeTable`(
+    `programName` TEXT,
+    `studentID` TEXT,
+    `studentName` TEXT,
+    `subjectCode` TEXT,
+    `subjectName` TEXT,
+    `facultyName` TEXT,
+    `section` TEXT
+)";
+
+$createProgram = "CREATE TABLE IF NOT EXISTS `enrolled`(
+    `programName` TEXT,
+    `studentID` TEXT,
+    `studentName` TEXT,
+    `subjectCode` TEXT,
+    `subjectName` TEXT,
+    `facultyName` TEXT,
+    `section` TEXT
+);";
+
+$createCourses = "CREATE TABLE IF NOT EXISTS `courseList`(
+    `programName` TEXT,
+    `subject` TEXT,
+    `subjectCode` TEXT,
+    `facultyName` TEXT,
+    `section` TEXT
+);";
+
 mysqli_query($conn, $createAdminTable);
 mysqli_query($conn, $createStudentTable);
 mysqli_query($conn, $createFacultyTable);
+mysqli_query($conn, $createEnrolleeTable);
+mysqli_query($conn, $createProgram);
+mysqli_query($conn, $createCourses);
 ?>

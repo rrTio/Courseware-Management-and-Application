@@ -23,7 +23,7 @@ $id = date("Y") . "-" . "03" . substr(hexdec(uniqid()), 12) . date("s");
 <body>
     <section>
             <div class="container mt-5">
-                <form name="officials" method="POST" action="./database/insertDB.php" enctype="multipart/form-data">
+                <form method="POST" action="./database/insertDB.php" enctype="multipart/form-data">
                     <input type="hidden" name='studentId' value='<?php echo $id?>'>
                     <div class="row mb-2">
                         <div class="col-md-12">
@@ -58,6 +58,22 @@ $id = date("Y") . "-" . "03" . substr(hexdec(uniqid()), 12) . date("s");
                                     <div class="form-floating">
                                         <input class="form-control form-control-lg" type="text" id="mName" name="middleName" placeholder="Middle Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                         <label class="form-label" for="mName">MIDDLE NAME</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                    <select class="form-control form-control-lg p-2 pt-3" id="program" name="program" required>
+                                            <option selected disabled>--SELECT--</option>
+                                            <option value="BTLE">Bachelor of Technology and Livelihood Education</option>
+                                            <option value="BPE">Bachelor of Physical Education</option>
+                                            <option value="BSBA">BS Business Administration</option>
+                                            <option value="BSN">BS Nursing</option>
+                                            <option value="BPA">Bachelor of Public Administration</option>
+                                            <option value="ABEL">AB English Language</option>
+                                            <option value="BSIT">BS Information Technology</option>
+                                            <option value="BECHE">Bachelor of Early Childhood Education</option>
+                                        </select>
+                                        <label class="form-label" for="program">PROGRAMS</label>  
                                     </div>
                                 </div>
                             </div>
@@ -327,13 +343,13 @@ $id = date("Y") . "-" . "03" . substr(hexdec(uniqid()), 12) . date("s");
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="password" id="psswrd" name="psswrd" placeholder="Password" required>
+                                <input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Password" required>
                                 <label class="form-label" for="psswrd">PASSWORD</label>
                             </div>
                         </div>  
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="password" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
+                                <input class="form-control form-control-lg" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Pasword" required>
                                 <label class="form-label" for="cPsswrd">CONFIRM PASSWORD</label>
                             </div>
                         </div>

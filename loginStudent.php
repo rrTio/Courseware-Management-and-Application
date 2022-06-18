@@ -12,10 +12,10 @@
   <body>
     <div class="login">
       <h1>Student Login</h1>
-      <form action="./database/database.php" method="post">
-        <input type="text" name="username" placeholder="Username or Email" required="required" />
-        <input type="password" name="password" placeholder="Password" required="required" />
-        <button type="submit" name="btnLogin" class="btn btn-primary btn-block btn-large">Enter</button>
+      <form action="./database/loginDB.php" method="post">
+        <input type="text" name="usernameStudent" placeholder="Username or Email" required="required" />
+        <input type="password" name="passwordStudent" placeholder="Password" required="required" />
+        <button type="submit" name="btnLoginStudent" class="btn btn-primary btn-block btn-large">Enter</button>
         <center class="marginButton">
           <a id="forgotPassword" onClick="return forgotPassword()">Forgot password?</a>
         </center>

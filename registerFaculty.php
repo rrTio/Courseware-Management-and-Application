@@ -327,13 +327,13 @@ $id = date("Y") . "-". "02" . substr(hexdec(uniqid()), 12) . date("s");
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="password" id="psswrd" name="psswrd" placeholder="Password" required>
+                                <input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Password" required>
                                 <label class="form-label" for="psswrd">PASSWORD</label>
                             </div>
                         </div>  
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input class="form-control form-control-lg" type="password" id="cPsswrd" name="cPsswrd" placeholder="Confirm Pasword" required>
+                                <input class="form-control form-control-lg" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Pasword" required>
                                 <label class="form-label" for="cPsswrd">CONFIRM PASSWORD</label>
                             </div>
                         </div>

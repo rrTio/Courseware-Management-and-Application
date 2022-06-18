@@ -1,0 +1,59 @@
+.welcome {
+	color: white;
+  margin-left: 250px;
+}
+
+.subjects{
+	margin-top: 20px;
+	margin-left: 250px;
+}
+
+.header{
+	color: white;
+  background: #566787;
+  font-family: "Varela Round", sans-serif;
+  font-size: 15px;
+  padding: 15px;
+}
+
+.welcome .content {
+	background-color: #435d7d;
+}
+
+.welcome p {
+	color: white;
+  	font-weight: 500;
+}
+
+.statistics{
+  margin-left: 250px;
+}
+
+.statistics .box {
+	background-color: #435d7d;
+	color: white;
+}
+
+.statistics .box i {
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+}
+
+.statistics .box p {
+	color: white;
+}
+
+::-webkit-scrollbar {
+	background: #6c6d77;
+	width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #acacb3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(0, 0, 0, 0.3);
+}
