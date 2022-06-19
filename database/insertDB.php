@@ -163,7 +163,14 @@ if(isset($_POST['btnEncodeStudent'])){
     $courseListInsertion = "INSERT INTO enrolleeTable (programName, studentID, studentName, subjectCode, subjectName, facultyName, section)
                                 VALUES('$program', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
     mysqli_query($conn, $courseListInsertion);
-    header("Location: ../studentSubjects.php");
+    header("Location: ../studentEnrollment.php");
+}
+
+if(isset($_POST['btnCancelEnrollment'])){
+    $getStudentID = $_POST['btnCancelEnrollment'];
+    $removeSubject = "DELETE FROM enrolleeTable WHERE studentID = '$getStudentID';";
+    mysqli_query($conn, $removeSubject);
+    header("Location: ../studentPending.php");
 }
 
 if(isset($_POST['btnVerifyStudent'])){
@@ -198,4 +205,5 @@ if(isset($_POST['btnDenyStudent'])){
     mysqli_query($conn, $remove);
     header("Location: ../adminEnrollees.php");
 }
+
 ?>

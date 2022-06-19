@@ -12,7 +12,7 @@ $program = $_SESSION['program'];
 
 <head>
   <meta charset="UTF-8">
-  <title>Enrollment</title>
+  <title>For Verification</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -25,7 +25,7 @@ $program = $_SESSION['program'];
   <link rel="stylesheet" href="./css/dashboardAdmin.css">
   <link rel="stylesheet" href="./css/main.css">
   <script type="text/javascript" src="./js/dashboard.js"></script>
-  <script type="text/javascript" src="./js/studentEnrollment.js"></script>
+  
 </head>
 
 <body onload="getPosition();">
@@ -40,7 +40,7 @@ $program = $_SESSION['program'];
       </div>
     </div>
     <ul class="categories list-unstyled">
-      <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+        <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
         <li><i class="fa fa-book-open sideIcons"></i><a href="studentSubjects.php"> Subjects</a></li>
         <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Tasks</a></li>
         <li><i class="fa fa-list sideIcons"></i><a href="studentEnrollment.php"> Enrollment</a></li>
@@ -54,8 +54,8 @@ $program = $_SESSION['program'];
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Student Enrollment</h1>
-          <p class="mb-0">Hello <?php echo $firstName?></p>
+          <h1 class="fs-3">Pending for Verification</h1>
+          <p class="mb-0">The list below are waiting for verification by the admin.</p>
         </div>
       </div>
     <section class="subjects">
@@ -64,39 +64,45 @@ $program = $_SESSION['program'];
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th data-field="Program Code" data-sortable="true">Program Code</th>
-              <th data-field="subjectCode" data-sortable="true">Subject Code</th>
-              <th data-field="subject" data-sortable="true">Subject Name</th>
+              <th data-field="subjectCode" data-sortable="true">Program Name</th>
+              <th data-field="subject" data-sortable="true">Student ID</th>
+              <th data-field="faculty" data-sortable="true">Student Name</th>
+              <th data-field="faculty" data-sortable="true">Student Code</th>
+              <th data-field="faculty" data-sortable="true">Subject Name</th>
+              <th data-field="faculty" data-sortable="true">Faculty Code</th>
+              <th data-field="faculty" data-sortable="true">Section</th>
               <th data-field="action" data-sortable="true">Action</th>
             </tr>
           </thead>
           <form method="POST" action="./database/insertDB.php">
-            <input type="hidden" name="studentName" value="<?php echo $fullName?>">
-            <input type="hidden" name="studentID" value="<?php echo $studentID?>">
-            <input type="hidden" name="program" value="<?php echo $program?>">
             <tbody>
-              <?php
-              $getCourse = "SELECT * FROM courselist WHERE programName = '$program';";
-              $result = mysqli_query($conn, $getCourse);
-              if (mysqli_num_rows($result) > 0) {
+            <?php
+            include_once("./database/connection.php");
+            $getCourse = "SELECT * FROM enrolleeTable WHERE programName = '$program';";
+            $result = mysqli_query($conn, $getCourse);
+            if (mysqli_num_rows($result) > 0) {
                 while ($subjects = mysqli_fetch_assoc($result)) {
-                  echo "<tr>"
+                echo "<tr>"
                     . "<td>" . $subjects['programName']
+                    . "</td><td>" . $subjects['studentID']
+                    . "</td><td>" . $subjects['studentName']
                     . "</td><td>" . $subjects['subjectCode']
-                    . "</td><td>" . $subjects['subject']
-                    . "<td><button name='btnEncodeStudent' onClick='addedEnrollment()' type='submit' value=" . $subjects['subjectCode'] . " class='btn btn-success text-dark bg-gradient fa fa-plus'>Encode Subject</button></td>"
+                    . "</td><td>" . $subjects['subjectName']
+                    . "</td><td>" . $subjects['facultyName']
+                    . "</td><td>" . $subjects['section']
+                    . "<td><button name='btnCancelEnrollment' title='Cancel Enrollment' type='submit' value=" . $subjects['studentID'] . " class='btn btn-success text-dark bg-danger fa fa-trash'></button></td>"
                     . "</tr>";
                 }
-              }
-              ?>
+            }
+            ?>
             </tbody>
-          </form>
+        </form>
         </table>
-      </div>
+        </div>
     </section>
 
     </div>
-  </section>
+    </section>
 </body>
 
 </html>

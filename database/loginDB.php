@@ -47,6 +47,7 @@ if(isset($_POST['btnLoginFaculty'])){
 
             $fullName = $lastName . ", " . $firstName . " " . $middleName;
         }
+        
         session_start();
         $_SESSION['firstName'] = $firstName;
         $_SESSION['fullname'] = $fullName;
