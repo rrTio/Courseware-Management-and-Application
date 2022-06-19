@@ -77,7 +77,7 @@ $program = $_SESSION['program'];
             <tbody>
               <?php
               include_once("./database/connection.php");
-              $getCourse = "SELECT * FROM enrolled";
+              $getCourse = "SELECT * FROM enrolled WHERE programName = '$program';";
               $result = mysqli_query($conn, $getCourse);
               if (mysqli_num_rows($result) > 0) {
                 while ($subjects = mysqli_fetch_assoc($result)) {
