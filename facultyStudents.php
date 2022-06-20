@@ -37,11 +37,9 @@ $facultyID = $_SESSION['facultyID'];
       </div>
     </div>
     <ul class="categories list-unstyled">
-      <li><i class="fa fa-home sideIcons"></i><a href="dashboardStudent.php"> Dashboard</a></li>
-      <li><i class="fa fa-book-open sideIcons"></i><a href="studentSubjects.php"> Subjects</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Tasks</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="studentEnrollment.php"> Enrollment</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Academics</a></li>
+      <li><i class="fa fa-home sideIcons"></i><a href="dashboardFaculty.php"> Dashboard</a></li>
+      <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Students</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
@@ -51,20 +49,17 @@ $facultyID = $_SESSION['facultyID'];
       <div class="welcome">
         <div class="content rounded-3 p-3">
           <h1 class="fs-3">Enrolled Students</h1>
-          <p class="mb-0">Hello <?php echo $firstName?></p>
-          <p class="mb-0">Subjects Can Only Be Seen Once Validated Upon Enrollment</p>
         </div>
       </div>
     <section class="subjects">
       <div class="container">
-        <h2>&nbsp;Subjects</h2>
+        <h2>&nbsp;Subjects List</h2>
         <table class="table table-striped table-hover">
           <thead>
             <tr>
               <th data-field="subjectCode" data-sortable="true">Program Name</th>
               <th data-field="subjectCode" data-sortable="true">Subject Code</th>
               <th data-field="subject" data-sortable="true">Subject Name</th>
-              <th data-field="faculty" data-sortable="true">Faculty</th>
               <th data-field="action" data-sortable="true">Section</th>
             </tr>
           </thead>
@@ -83,7 +78,6 @@ $facultyID = $_SESSION['facultyID'];
                     . "<td>" . $subjects['programName']
                     . "</td><td>" . $subjects['subjectCode']
                     . "</td><td>" . $subjects['subjectName']
-                    . "</td><td>" . $subjects['facultyName']
                     . "</td><td>" . $subjects['section'] . "</td>"
                     . "</tr>";
                 }
