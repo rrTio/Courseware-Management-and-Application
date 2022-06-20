@@ -195,6 +195,10 @@ if(isset($_POST['btnVerifyStudent'])){
                     VALUES('$eventID', '$programName', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
     mysqli_query($conn, $enrolled);
 
+    $enrolledSubjects = "INSERT INTO studentSubjects (programName, subject, subjectCode, facultyName, studentID, section)
+                            VALUES ('$programName', '$subjectName', '$subjectCode', '$facultyName', '$studentID','$section');";
+    mysqli_query($conn, $enrolledSubjects);
+
     $remove = "DELETE FROM enrolleeTable WHERE eventID = '$eventID';";
     mysqli_query($conn, $remove);
     header("Location: ../adminEnrollees.php");

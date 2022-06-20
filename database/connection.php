@@ -104,10 +104,21 @@ $createCourses = "CREATE TABLE IF NOT EXISTS `courseList`(
     `section` TEXT
 );";
 
+$createStudentSujects = "CREATE TABLE IF NOT EXISTS `studentSubjects`(
+    `programName` TEXT,
+    `subject` TEXT,
+    `subjectCode` TEXT,
+    `facultyName` TEXT,
+    `studentID` TEXT,
+    `section` TEXT
+);";
+
+mysqli_query($conn, $createProgram);
+mysqli_query($conn, $createCourses);
 mysqli_query($conn, $createAdminTable);
 mysqli_query($conn, $createStudentTable);
 mysqli_query($conn, $createFacultyTable);
 mysqli_query($conn, $createEnrolleeTable);
-mysqli_query($conn, $createProgram);
-mysqli_query($conn, $createCourses);
+mysqli_query($conn, $createStudentSujects);
+
 ?>

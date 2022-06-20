@@ -5,13 +5,9 @@ $firstName = $_SESSION['firstName'];
 $fullName = $_SESSION['fullname'];
 $facultyID = $_SESSION['facultyID'];
 
-$countStudents = "SELECT * FROM enrolled WHERE facultyName = '$facultyID';";
+$countStudents = "SELECT COUNT(DISTINCT(studentID)) FROM enrolled WHERE facultyName = '$facultyID';";
 $studentsQuery = mysqli_query($conn, $countStudents);
 $totalStudents = mysqli_num_rows($studentsQuery);
-
-$countSections = "SELECT COUNT(DISTINCT(section)) FROM enrolled WHERE facultyName = '$facultyID';";
-$sectionsQuery = mysqli_query($conn, $countSections);
-$totalSections = mysqli_num_rows($sectionsQuery);
 
 $countSubjects = "SELECT * FROM enrolled WHERE facultyName = '$facultyID';";
 $subjectsQuery = mysqli_query($conn, $countSubjects);
@@ -66,17 +62,7 @@ $totalSubjects = mysqli_num_rows($subjectsQuery);
       </div>
       <section class="statistics mt-4">
         <div class="row">
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
-              <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">Sections</h3> <span class="d-block ms-2"><?php echo $totalSections?></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
               <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
               <div class="ms-3">
@@ -86,7 +72,7 @@ $totalSubjects = mysqli_num_rows($subjectsQuery);
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
               <i class="uil-user fs-2 text-center bg-danger rounded-circle"></i>
               <div class="ms-3">
