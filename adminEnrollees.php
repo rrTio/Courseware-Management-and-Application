@@ -78,7 +78,6 @@ $adminID = $_SESSION['adminID'];
             $result = mysqli_query($conn, $getCourse);
             if (mysqli_num_rows($result) > 0) {
                 while ($subjects = mysqli_fetch_assoc($result)) {
-                  
                 echo "<tr>"
                     . "<td>" . $subjects['eventID']
                     . "</td><td>" . $subjects['programName']
@@ -88,8 +87,8 @@ $adminID = $_SESSION['adminID'];
                     . "</td><td>" . $subjects['subjectName']
                     . "</td><td>" . $subjects['facultyName']
                     . "</td><td>" . $subjects['section']
-                    . "<td><button name='btnVerifyStudent' title='Verify Student' type='submit' value=" . $subjects['eventID'] . " class='btn btn-success text-dark bg-gradient fa fa-check'>".$subjects['eventID']."</button>
-                            <button name='btnDenyStudent' title='Deny Student' type='submit' value=" . $subjects['eventID'] . " class='btn btn-success text-dark bg-danger fa fa-trash'>".$subjects['eventID']."</button></td>"
+                    . "<td><button name='btnVerifyStudent' title='Verify Student' type='submit' value=" . $subjects['eventID'] . " class='btn btn-success text-dark bg-gradient fa fa-check'></button>
+                            <button name='btnDenyStudent' title='Deny Student' type='submit' value=" . $subjects['eventID'] . " class='btn btn-success text-dark bg-danger fa fa-trash'></button></td>"
                     . "</tr>";
                 }
             }

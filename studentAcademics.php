@@ -12,7 +12,7 @@ $program = $_SESSION['program'];
 
 <head>
   <meta charset="UTF-8">
-  <title>For Verification</title>
+  <title>Dashboard</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -24,8 +24,7 @@ $program = $_SESSION['program'];
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/dashboardAdmin.css">
   <link rel="stylesheet" href="./css/main.css">
-  <script type="text/javascript" src="./js/dashboard.js"></script>
-  
+  <script type="text/javascript" src="./assets/js/dashboard.js"></script>
 </head>
 
 <body onload="getPosition();">
@@ -40,7 +39,7 @@ $program = $_SESSION['program'];
       </div>
     </div>
     <ul class="categories list-unstyled">
-    <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
+      <li><i class="fa fa-home sideIcons"></i><a href="dashboard.php"> Dashboard</a></li>
       <li><i class="fa fa-book-open sideIcons"></i><a href="studentSubjects.php"> Subjects</a></li>
       <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Tasks</a></li>
       <li><i class="fa fa-list sideIcons"></i><a href="studentEnrollment.php"> Enrollment</a></li>
@@ -50,58 +49,62 @@ $program = $_SESSION['program'];
   </aside>
 
   <section>
+    <form name="position">
+      
+    </form>
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Pending for Verification</h1>
-          <p class="mb-0">The list below are waiting for verification by the admin.</p>
+          <h1 class="fs-3">Welcome to Student Dashboard</h1>
+          <p class="mb-0">Hello <?php echo $firstName?></p>
         </div>
       </div>
-    <section class="subjects">
-      <div class="container">
-        <h2>&nbsp;Subjects</h2>
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th data-field="subjectCode" data-sortable="true">Program Name</th>
-              <th data-field="subject" data-sortable="true">Student ID</th>
-              <th data-field="faculty" data-sortable="true">Student Name</th>
-              <th data-field="faculty" data-sortable="true">Student Code</th>
-              <th data-field="faculty" data-sortable="true">Subject Name</th>
-              <th data-field="faculty" data-sortable="true">Faculty Code</th>
-              <th data-field="faculty" data-sortable="true">Section</th>
-              <th data-field="action" data-sortable="true">Action</th>
-            </tr>
-          </thead>
-          <form method="POST" action="./database/insertDB.php">
-            <tbody>
-            <?php
-            include_once("./database/connection.php");
-            $getCourse = "SELECT * FROM enrolleeTable WHERE programName = '$program';";
-            $result = mysqli_query($conn, $getCourse);
-            if (mysqli_num_rows($result) > 0) {
-                while ($subjects = mysqli_fetch_assoc($result)) {
-                echo "<tr>"
-                    . "<td>" . $subjects['programName']
-                    . "</td><td>" . $subjects['studentID']
-                    . "</td><td>" . $subjects['studentName']
-                    . "</td><td>" . $subjects['subjectCode']
-                    . "</td><td>" . $subjects['subjectName']
-                    . "</td><td>" . $subjects['facultyName']
-                    . "</td><td>" . $subjects['section']
-                    . "<td><button name='btnCancelEnrollment' title='Cancel Enrollment' type='submit' value=" . $subjects['studentID'] . " class='btn btn-success text-dark bg-danger fa fa-trash'></button></td>"
-                    . "</tr>";
-                }
-            }
-            ?>
-            </tbody>
-        </form>
-        </table>
+      <section class="statistics mt-4">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
+              <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">SUBJECTS</h3> <span class="d-block ms-2">COUNT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+              <i class="uil-user fs-2 text-center bg-danger rounded-circle"></i>
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">TASKS</h3> <span class="d-block ms-2">COUNT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="box d-flex rounded-2 align-items-center p-3">
+              <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
+              <div class="ms-3">
+                <div class="d-flex align-items-center">
+                  <h3 class="mb-0">ACADEMICS</h3> <span class="d-block ms-2">COUNT</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+    
+    <section class="officials">
+      <div class="container">
+        <h2>&nbsp;Tasks</h2>
+
+
+      </div>
     </section>
 
     </div>
-    </section>
+  </section>
 </body>
 
 </html>
