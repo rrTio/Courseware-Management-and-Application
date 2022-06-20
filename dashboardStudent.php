@@ -5,6 +5,7 @@ $firstName = $_SESSION['firstName'];
 $fullName = $_SESSION['fullname'];
 $studentID = $_SESSION['studentID'];
 $program = $_SESSION['program'];
+$image = $_SESSION['profile'];
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ $program = $_SESSION['program'];
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboardStudent.php"> Dashboard</a></li>
       <li><i class="fa fa-book-open sideIcons"></i><a href="studentSubjects.php"> Subjects</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="residents.php"> Tasks</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="studentOpenSubject.php"> Tasks</a></li>
       <li><i class="fa fa-list sideIcons"></i><a href="studentEnrollment.php"> Enrollment</a></li>
       <li><i class="fa fa-list sideIcons"></i><a href="studentAcademics.php"> Academics</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>

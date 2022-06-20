@@ -4,6 +4,7 @@ session_start();
 $firstName = $_SESSION['firstName'];
 $fullName = $_SESSION['fullname'];
 $facultyID = $_SESSION['facultyID'];
+$image = $_SESSION['profile'];
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ $facultyID = $_SESSION['facultyID'];
 
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard</title>
+  <title>Tasks</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -29,6 +30,9 @@ $facultyID = $_SESSION['facultyID'];
 <body onload="getPosition();">
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
     <div class="sidebar-header d-flex align-items-center px-3 py-4">
+      <?php
+        echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
+      ?>
       <div class="ms-2">
         <h5 class="fs-6 mb-0">
           <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $fullName; ?></a>
@@ -38,8 +42,8 @@ $facultyID = $_SESSION['facultyID'];
     </div>
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboardFaculty.php"> Dashboard</a></li>
-      <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Students</a></li>
+      <li><i class="fa fa-user sideIcons"></i><a href="viewUserFaculty.php"> My Profile</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Subject List</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>
@@ -48,8 +52,7 @@ $facultyID = $_SESSION['facultyID'];
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Welcome to Student Dashboard</h1>
-          <p class="mb-0">Hello <?php echo $firstName?></p>
+          <h1 class="fs-3 text-center">TASKS</h1>
         </div>
       </div>
     </div>

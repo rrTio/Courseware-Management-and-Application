@@ -4,6 +4,7 @@ session_start();
 $firstName = $_SESSION['firstName'];
 $fullName = $_SESSION['fullname'];
 $facultyID = $_SESSION['facultyID'];
+$image = $_SESSION['profile'];
 
 $countStudents = "SELECT COUNT(DISTINCT(studentID)) FROM enrolled WHERE facultyName = '$facultyID';";
 $studentsQuery = mysqli_query($conn, $countStudents);
@@ -46,8 +47,8 @@ $totalSubjects = mysqli_num_rows($subjectsQuery);
     </div>
     <ul class="categories list-unstyled">
       <li><i class="fa fa-home sideIcons"></i><a href="dashboardFaculty.php"> Dashboard</a></li>
-      <li><i class="fa fa-user sideIcons"></i><a href="viewUser.php"> My Profile</a></li>
-      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Students</a></li>
+      <li><i class="fa fa-user sideIcons"></i><a href="viewUserFaculty.php"> My Profile</a></li>
+      <li><i class="fa fa-list sideIcons"></i><a href="facultyStudents.php"> Subject List</a></li>
       <li><i class="fa fa-power-off sideIcons"></i><a href="index.php"> Logout</a></li>
     </ul>
   </aside>

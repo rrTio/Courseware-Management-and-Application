@@ -14,6 +14,7 @@ $lastName = $_SESSION['plastName'];
 $section = $_SESSION['section'];
 
 $fullName = $lastName . ', ' . $firstName . ' ' . $middleName;
+$image = $_SESSION['profile'];
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +40,9 @@ $fullName = $lastName . ', ' . $firstName . ' ' . $middleName;
 <body onload="getPosition();">
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
         <div class="sidebar-header d-flex align-items-center px-3 py-4">
+            <?php
+                echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
+            ?>
         <div class="ms-2">
             <h5 class="fs-6 mb-0">
             <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $fullName; ?></a>
@@ -95,7 +99,7 @@ $fullName = $lastName . ', ' . $firstName . ' ' . $middleName;
                             echo "<tr>"
                                 . "<td>" . $taskName
                                 . "</td><td>" . $subjectNote
-                                . "</td><td><button name='btnDownloadFile' title='Download File' type='submit' value=" . $taskID . " class='btn btn-success text-dark bg-gradient fa fa-download'>&nbsp;Download ".$taskID."</button></td>"
+                                . "</td><td><button name='btnDownloadFile' title='Download File' type='submit' value=" . $taskID . " class='btn btn-success text-dark bg-gradient fa fa-download'>&nbsp;Download ".$taskName."</button></td>"
                                 . "</tr>";
                             }
                         }
