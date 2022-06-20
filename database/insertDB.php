@@ -143,7 +143,7 @@ if(isset($_POST['btnEncodeSubject'])){
 
 if(isset($_POST['btnEncodeStudent'])){
     $getSubjectCode = $_POST['btnEncodeStudent'];
-
+    $eventID = date('Ymhis');
     $studentID = $_POST['studentID'];
     $studentName = $_POST['studentName'];
     $program = $_POST['program'];
@@ -160,8 +160,8 @@ if(isset($_POST['btnEncodeStudent'])){
         }
     }
 
-    $courseListInsertion = "INSERT INTO enrolleeTable (programName, studentID, studentName, subjectCode, subjectName, facultyName, section)
-                                VALUES('$program', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
+    $courseListInsertion = "INSERT INTO enrolleeTable (eventID, programName, studentID, studentName, subjectCode, subjectName, facultyName, section)
+                                VALUES('$eventID', '$program', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
     mysqli_query($conn, $courseListInsertion);
     header("Location: ../studentEnrollment.php");
 }
@@ -174,13 +174,14 @@ if(isset($_POST['btnCancelEnrollment'])){
 }
 
 if(isset($_POST['btnVerifyStudent'])){
-    $studentID = $_POST['btnVerifyStudent'];
+    $eventID = $_POST['btnVerifyStudent'];
 
-    $getStudent = "SELECT * FROM enrolleetable WHERE studentID = '$studentID';";
+    $getStudent = "SELECT * FROM enrolleetable WHERE eventID = '$eventID';";
     $get = mysqli_query($conn, $getStudent);
 
-    if(mysqli_num_rows($get) == 1){
+    if(mysqli_num_rows($get) > 0){
         while($studentInfo = mysqli_fetch_assoc($get)){
+            $eventID = $studentInfo['eventID'];
             $programName = $studentInfo['programName'];
             $studentID = $studentInfo['studentID'];
             $studentName = $studentInfo['studentName'];
@@ -190,18 +191,18 @@ if(isset($_POST['btnVerifyStudent'])){
             $section = $studentInfo['section'];
         }
     }
-    $enrolled = "INSERT INTO enrolled (programName, studentID, studentName, subjectCode, subjectName, facultyName, section) 
-                    VALUES('$programName', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
+    $enrolled = "INSERT INTO enrolled (eventID, programName, studentID, studentName, subjectCode, subjectName, facultyName, section)
+                    VALUES('$eventID', '$programName', '$studentID', '$studentName', '$subjectCode', '$subjectName', '$facultyName', '$section');";
     mysqli_query($conn, $enrolled);
 
-    $remove = "DELETE FROM enrolleeTable WHERE studentID = '$studentID';";
+    $remove = "DELETE FROM enrolleeTable WHERE eventID = '$eventID';";
     mysqli_query($conn, $remove);
     header("Location: ../adminEnrollees.php");
 }
 
 if(isset($_POST['btnDenyStudent'])){
-    $studentID = $_POST['btnDenyStudent'];
-    $remove = "DELETE FROM enrolleeTable WHERE studentID = '$studentID';";
+    $eventID = $_POST['btnDenyStudent'];
+    $remove = "DELETE FROM enrolleeTable WHERE eventID = '$eventID';";
     mysqli_query($conn, $remove);
     header("Location: ../adminEnrollees.php");
 }

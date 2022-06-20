@@ -23,7 +23,7 @@ $facultyID = $_SESSION['facultyID'];
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/dashboardAdmin.css">
   <link rel="stylesheet" href="./css/main.css">
-  <script type="text/javascript" src="./assets/js/dashboard.js"></script>
+  <script type="text/javascript" src="./js/dashboard.js"></script>
 </head>
 
 <body onload="getPosition();">

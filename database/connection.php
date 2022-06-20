@@ -75,6 +75,7 @@ $createFacultyTable = "CREATE TABLE IF NOT EXISTS `facultyTable`(
 );";
 
 $createEnrolleeTable = "CREATE TABLE IF NOT EXISTS `enrolleeTable`(
+    `eventID` TEXT,
     `programName` TEXT,
     `studentID` TEXT,
     `studentName` TEXT,
@@ -85,6 +86,7 @@ $createEnrolleeTable = "CREATE TABLE IF NOT EXISTS `enrolleeTable`(
 )";
 
 $createProgram = "CREATE TABLE IF NOT EXISTS `enrolled`(
+    `eventID` TEXT,
     `programName` TEXT,
     `studentID` TEXT,
     `studentName` TEXT,
