@@ -24,10 +24,9 @@ $program = $_SESSION['program'];
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/dashboardAdmin.css">
   <link rel="stylesheet" href="./css/main.css">
-  <script type="text/javascript" src="./assets/js/dashboard.js"></script>
 </head>
 
-<body onload="getPosition();">
+<body>
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
     <div class="sidebar-header d-flex align-items-center px-3 py-4">
       <div class="ms-2">
@@ -49,16 +48,14 @@ $program = $_SESSION['program'];
   </aside>
 
   <section>
-    <form name="position">
-      
-    </form>
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Student Academics</h1>
+          <h1 class="fs-3 text-center">Student Academics</h1>
         </div>
       </div>
       <section class="statistics mt-4">
+        <form method="POST" action="./database/openSubject.php">
         <?php
           $getSubjects = "SELECT * FROM studentsubjects WHERE studentID = '$studentID';";
           $query = mysqli_query($conn, $getSubjects);
@@ -69,11 +66,11 @@ $program = $_SESSION['program'];
               echo "<div class='row mt-1'>
               <div class='col-lg-12'>
                 <div class='box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3'>
-                  <i class='uil-user-square fs-2 text-center bg-primary rounded-circle'></i>
                   <div class='ms-3'>
                     <div class='d-flex align-items-center'>
                       <h3 class='mb-0'>".$sCode."</h3> 
                       <span class='d-block ms-2'>".$sName."</span>
+                      <button name='btnOpenSubject' onClick='addedEnrollment()' type='submit' value=" . $sCode . " class='btn btn-success text-dark bg-gradient fa fa-plus'>Open ".$subjectList['subjectCode']."</button>
                     </div>
                   </div>
                 </div>
@@ -82,17 +79,8 @@ $program = $_SESSION['program'];
             }
           }
         ?>
-      </div>
+        </form>
     </section>
-    
-    <section class="officials">
-      <div class="container">
-        <h2>&nbsp;Tasks</h2>
-
-
-      </div>
-    </section>
-
     </div>
   </section>
 </body>

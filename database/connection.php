@@ -113,6 +113,19 @@ $createStudentSujects = "CREATE TABLE IF NOT EXISTS `studentSubjects`(
     `section` TEXT
 );";
 
+$createSystem = "CREATE TABLE IF NOT EXISTS `studentTasks`(
+    `taskID` TEXT,
+    `taskName` TEXT,
+    `subjectCode` TEXT,
+    `subjectNote` TEXT,
+    `facultyID` TEXT,
+    `fileName` TEXT,
+    `fileType` TEXT,
+    `fileLocation` TEXT
+);";
+
+
+mysqli_query($conn, $createSystem);
 mysqli_query($conn, $createProgram);
 mysqli_query($conn, $createCourses);
 mysqli_query($conn, $createAdminTable);

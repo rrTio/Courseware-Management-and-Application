@@ -48,7 +48,7 @@ $facultyID = $_SESSION['facultyID'];
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Enrolled Students</h1>
+          <h1 class="fs-3 text-center">Enrolled Students</h1>
         </div>
       </div>
     <section class="subjects">
@@ -61,9 +61,10 @@ $facultyID = $_SESSION['facultyID'];
               <th data-field="subjectCode" data-sortable="true">Subject Code</th>
               <th data-field="subject" data-sortable="true">Subject Name</th>
               <th data-field="action" data-sortable="true">Section</th>
+              <th data-field="action" data-sortable="true">Action</th>
             </tr>
           </thead>
-          <form method="POST" action="./database/insertDB.php">
+          <form method="POST" action="./database/openSubject.php">
             <input type="hidden" name="studentName" value="<?php echo $fullName?>">
             <input type="hidden" name="facultyID" value="<?php echo $facultyID?>">
             <input type="hidden" name="program" value="<?php echo $program?>">
@@ -78,7 +79,8 @@ $facultyID = $_SESSION['facultyID'];
                     . "<td>" . $subjects['programName']
                     . "</td><td>" . $subjects['subjectCode']
                     . "</td><td>" . $subjects['subjectName']
-                    . "</td><td>" . $subjects['section'] . "</td>"
+                    . "</td><td>" . $subjects['section'] 
+                    . "</td><td><button name='btnOpenSubjectFaculty' onClick='addedEnrollment()' type='submit' value=" . $subjects['subjectCode'] . " class='btn btn-success text-dark bg-gradient'>Open ".$subjects['subjectCode']."</button></td>"
                     . "</tr>";
                 }
               }

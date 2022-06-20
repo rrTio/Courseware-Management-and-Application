@@ -61,7 +61,6 @@ $id = date("Y") . "-". "02" . substr(hexdec(uniqid()), 12) . date("s");
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mb-4">
                                 <div class="col-md-3 pt-3">
                                     <div class="row mb-3">

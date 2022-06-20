@@ -17,21 +17,21 @@
   </head>
   <body>
   <div class="login">
-    <h1>Forgot Student Password</h1>
+    <h1>Forgot Faculty Password</h1>
     <form action="./database/database.php" method="post">
         <div class="form-floating">
-            <input class="form-control form-control-lg" type="text" id="studentUsername" name="studentUsername" placeholder="" required>
+            <input class="form-control form-control-lg" type="text" id="facultyUsername" name="facultyUsername" placeholder="" required>
             <label class="form-label" for="cPsswrd">USERNAME</label>
         </div>
         <div class="form-floating">
-            <input class="form-control form-control-lg" type="password" id="studentNewPassword" name="studentNewPassword" placeholder="" required>
+            <input class="form-control form-control-lg" type="password" id="facultytNewPassword" name="facultyNewPassword" placeholder="" required>
             <label class="form-label" for="newPsswrd">NEW PASSWORD</label>
         </div>
         <div class="form-floating">
-            <input class="form-control form-control-lg" type="password" id="confirmStudentPassword" name="confirmStudentPassword" placeholder="" required>
+            <input class="form-control form-control-lg" type="password" id="confirmFacultyPassword" name="confirmFacultyPassword" placeholder="" required>
             <label class="form-label" for="cNewPsswrd">CONFIRM NEW PASSWORD</label>
         </div>
-        <button type="submit" name="btnChangePassStudent" class="btn btn-primary btn-block btn-large">Enter</button>
+        <button type="submit" name="btnChangePassFaculty" class="btn btn-primary btn-block btn-large">Enter</button>
     </form>
   </div>
   </body>
