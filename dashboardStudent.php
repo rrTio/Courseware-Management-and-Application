@@ -39,6 +39,9 @@ $totalTasks = mysqli_num_rows($tasks);
 <body onload="getPosition();">
   <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
     <div class="sidebar-header d-flex align-items-center px-3 py-4">
+      <?php
+        echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Admin's Image'>"
+      ?>
       <div class="ms-2">
         <h5 class="fs-6 mb-0">
           <a class="text-decoration-none headName" href="viewUser.php"> &nbsp; <?php echo $fullName; ?></a>

@@ -13,7 +13,7 @@ $image = $_SESSION['profile'];
 
 <head>
   <meta charset="UTF-8">
-  <title>Enrollment</title>
+  <title>Subjects</title>
   <link rel="icon" href="./assets/images/logo.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -56,7 +56,7 @@ $image = $_SESSION['profile'];
     <div class="p-4">
       <div class="welcome">
         <div class="content rounded-3 p-3">
-          <h1 class="fs-3">Student Enrollment</h1>
+          <h1 class="fs-3">Subjects</h1>
           <p class="mb-0">Hello <?php echo $firstName?></p>
           <p class="mb-0">Subjects Can Only Be Seen Once Validated Upon Enrollment</p>
         </div>
