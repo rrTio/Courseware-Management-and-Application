@@ -99,7 +99,7 @@ $image = $_SESSION['profile'];
                             echo "<tr>"
                                 . "<td>" . $taskName
                                 . "</td><td>" . $subjectNote
-                                . "</td><td><button name='btnDownloadFile' title='Download File' type='submit' value=" . $taskID . " class='btn btn-success text-dark bg-gradient fa fa-download'>&nbsp;Download ".$taskID."</button></td>"
+                                . "</td><td><button name='btnDownloadFile' title='Download File' type='submit' value=" . $taskID . " class='btn btn-success text-dark bg-gradient fa fa-download'>&nbsp;Download ".$taskName."</button></td>"
                                 . "</tr>";
                             }
                         }

@@ -57,6 +57,91 @@ $image = $_SESSION['profile'];
         </div>
         </div>
     </section>
-    
+    <section class="subjects">
+        <div class="container text-center">
+            <?php echo "<img class='img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>" ?>
+        </div>
+
+        <?php
+        $getFaculty = "SELECT * FROM facultyTable WHERE facultyID = '$facultyID';";
+        $result = mysqli_query($conn, $getFaculty);
+        if(mysqli_num_rows($result) > 0){
+            while($facultyInfo = mysqli_fetch_assoc($result)){
+                $facultyFName = $facultyInfo['firstName'];
+                $facultyMName = $facultyInfo['middleName'];
+                $facultyLName = $facultyInfo['lastName'];
+                $bMonth = $facultyInfo['birthMonth'];
+                $bDay = $facultyInfo['birthDay'];
+                $bYear = $facultyInfo['birthYear'];
+                $gender = $facultyInfo['gender'];
+                $civilStat = $facultyInfo['civilStatus'];
+                $cityAddress = $facultyInfo['cityAddress'];
+
+                $birthDay = $bMonth."-".$bDay."-".$bYear;
+            }
+        }
+
+
+        
+        ?>
+
+        <div class="container">
+
+            <div class="row mb-4 mt-2">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo $facultyFName ?>" name="fName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">FIRST NAME</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo  $facultyMName ?>" name="lName" placeholder="First Name" readonly>
+                    <label class="form-label" for="lName">MIDDLE NAME</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $facultyLName ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">LAST NAME</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $birthDay ?>" name="firstName" placeholder="First Name" readonly>
+                    <label class="form-label" for="fName">BIRTH DATE</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $gender ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">GENDER</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $civilStat ?>" name="firstName" placeholder="First Name" readonly>
+                    <label class="form-label" for="fName">CIVIL STATUS</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4 mt-3">
+                <div class="col-md-12">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $cityAddress ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">CITY ADDRESS</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </body>
 </html>

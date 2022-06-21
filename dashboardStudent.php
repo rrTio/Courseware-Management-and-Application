@@ -69,8 +69,8 @@ $totalTasks = mysqli_num_rows($tasks);
         </div>
       </div>
       <section class="statistics mt-6">
-        <div class="row">
-          <div class="col-lg-4">
+        <div class="row mt-2">
+          <div class="col-lg-6">
             <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
               <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
               <div class="ms-3">
@@ -94,7 +94,7 @@ $totalTasks = mysqli_num_rows($tasks);
       </div>
     </section>
     
-    <section class="officials">
+    <section class="subjects">
       <div class="container">
         <h2>&nbsp;Tasks</h2>
 

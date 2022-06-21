@@ -50,11 +50,98 @@ $image = $_SESSION['profile'];
 
     <section>
         <div class="p-4">
-        <div class="welcome">
-            <div class="content rounded-3 p-3">
-                <h1 class="fs-3 text-center">MY PROFILE</h1>
+            <div class="welcome">
+                <div class="content rounded-3 p-3">
+                    <h1 class="fs-3 text-center">MY PROFILE</h1>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section class="subjects">
+    <div class="container text-center">
+            <?php echo "<img class='img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>" ?>
+        </div>
+
+        <?php
+        $getAdmin = "SELECT * FROM adminTable WHERE adminID = '$adminID';";
+        $result = mysqli_query($conn, $getAdmin);
+        if(mysqli_num_rows($result) > 0){
+            while($adminInfo = mysqli_fetch_assoc($result)){
+                $adminFName = $adminInfo['firstName'];
+                $adminMName = $adminInfo['middleName'];
+                $adminLName = $adminInfo['lastName'];
+                $bMonth = $adminInfo['birthMonth'];
+                $bDay = $adminInfo['birthDay'];
+                $bYear = $adminInfo['birthYear'];
+                $gender = $adminInfo['gender'];
+                $civilStat = $adminInfo['civilStatus'];
+                $cityAddress = $adminInfo['cityAddress'];
+
+                $birthDay = $bMonth."-".$bDay."-".$bYear;
+            }
+        }
+
+
+        
+        ?>
+
+        <div class="container">
+
+            <div class="row mb-4 mt-2">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo $adminFName ?>" name="fName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">FIRST NAME</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo  $adminMName ?>" name="lName" placeholder="First Name" readonly>
+                    <label class="form-label" for="lName">MIDDLE NAME</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $adminLName ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">LAST NAME</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $birthDay ?>" name="firstName" placeholder="First Name" readonly>
+                    <label class="form-label" for="fName">BIRTH DATE</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $gender ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">GENDER</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="fName" value="<?php echo  $civilStat ?>" name="firstName" placeholder="First Name" readonly>
+                    <label class="form-label" for="fName">CIVIL STATUS</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4 mt-3">
+                <div class="col-md-12">
+                    <div class="form-floating">
+                    <input class="form-control form-control-lg" type="text" id="lName" value="<?php echo $cityAddress ?>" name="lastName" placeholder="Last Name" readonly>
+                    <label class="form-label" for="lName">CITY ADDRESS</label>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     
