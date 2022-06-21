@@ -52,7 +52,7 @@ $image = $_SESSION['profile'];
         <div class="p-4">
         <div class="welcome">
             <div class="content rounded-3 p-3">
-            <h1 class="fs-3 text-center">MY PROFILE</h1>
+                <h1 class="fs-3 text-center">MY PROFILE</h1>
             </div>
         </div>
         </div>

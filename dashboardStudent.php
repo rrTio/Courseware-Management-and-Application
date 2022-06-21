@@ -6,6 +6,14 @@ $fullName = $_SESSION['fullname'];
 $studentID = $_SESSION['studentID'];
 $program = $_SESSION['program'];
 $image = $_SESSION['profile'];
+
+$countSubjects = "SELECT * FROM studentsubjects;";
+$subjects = mysqli_query($conn, $countSubjects);
+$totalSubjects = mysqli_num_rows($subjects);
+
+$countTasks = "SELECT * FROM studenttasks;";
+$tasks = mysqli_query($conn, $countTasks);
+$totalTasks = mysqli_num_rows($tasks);
 ?>
 
 <!DOCTYPE html>
@@ -60,34 +68,24 @@ $image = $_SESSION['profile'];
           <p class="mb-0">Hello <?php echo $firstName?></p>
         </div>
       </div>
-      <section class="statistics mt-4">
+      <section class="statistics mt-6">
         <div class="row">
           <div class="col-lg-4">
             <div class="box d-flex rounded-1 align-items-center mb-4 mb-lg-0 p-3">
               <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
               <div class="ms-3">
                 <div class="d-flex align-items-center">
-                  <h3 class="mb-0">SUBJECTS</h3> <span class="d-block ms-2">COUNT</span>
+                  <h3 class="mb-0">SUBJECTS</h3> <span class="d-block ms-2"><?php echo $totalSubjects?></span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-lg-6">
             <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
               <i class="uil-user fs-2 text-center bg-danger rounded-circle"></i>
               <div class="ms-3">
                 <div class="d-flex align-items-center">
-                  <h3 class="mb-0">TASKS</h3> <span class="d-block ms-2">COUNT</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="box d-flex rounded-2 align-items-center p-3">
-              <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"></i>
-              <div class="ms-3">
-                <div class="d-flex align-items-center">
-                  <h3 class="mb-0">ACADEMICS</h3> <span class="d-block ms-2">COUNT</span>
+                  <h3 class="mb-0">TASKS</h3> <span class="d-block ms-2"><?php echo $totalTasks?></span>
                 </div>
               </div>
             </div>

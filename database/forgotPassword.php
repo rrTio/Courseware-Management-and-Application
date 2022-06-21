@@ -11,8 +11,6 @@ if(isset($_POST['btnChangePassAdmin'])){
     header("Location: ../loginAdmin.php");
 }
 
-
-
 if(isset($_POST['btnChangePassAdmin'])){
     $adminUsername = $_POST['facultyUsername'];
     $adminNewPassword = $_POST['facultytNewPassword'];
@@ -22,8 +20,6 @@ if(isset($_POST['btnChangePassAdmin'])){
     mysqli_query($conn, $changeFacultyPassword);
     header("Location: ../loginFaculty.php");
 }
-
-
 
 if(isset($_POST['btnChangePassFaculty'])){
     $adminUsername = $_POST['studentUsername'];

@@ -34,8 +34,8 @@ if(isset($_POST['btnRegisterAdmin'])){
 
     if(in_array($fileExtension, $allow)){
         $fileNameNew = strtolower($adminID.$lastName) . '.' . $fileExtension;
-        $filePath = './images/officials/'.$fileNameNew;
-        $sendToDirectory = '../images/officials/'.$fileNameNew;
+        $filePath = './images/'.$fileNameNew;
+        $sendToDirectory = '../images/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
@@ -75,8 +75,8 @@ if(isset($_POST['btnRegisterFaculty'])){
 
     if(in_array($fileExtension, $allow)){
         $fileNameNew = strtolower($facultyID.$lastName) . '.' . $fileExtension;
-        $filePath = './images/officials/'.$fileNameNew;
-        $sendToDirectory = '../images/officials/'.$fileNameNew;
+        $filePath = './images/'.$fileNameNew;
+        $sendToDirectory = '../images/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 
@@ -117,8 +117,8 @@ if(isset($_POST['btnRegisterStudent'])){
 
     if(in_array($fileExtension, $allow)){
         $fileNameNew = strtolower($studentID.$lastName) . '.' . $fileExtension;
-        $filePath = './images/officials/'.$fileNameNew;
-        $sendToDirectory = '../images/officials/'.$fileNameNew;
+        $filePath = './images/'.$fileNameNew;
+        $sendToDirectory = '../images/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $sendToDirectory);
     }
 

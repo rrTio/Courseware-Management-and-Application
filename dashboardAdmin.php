@@ -6,6 +6,14 @@ $fullName = $_SESSION['fullname'];
 $adminID = $_SESSION['adminID'];
 $image = $_SESSION['profile'];
 $image = $_SESSION['profile'];
+
+$countEnrollees = "SELECT * FROM enrolleetable;";
+$enrollees = mysqli_query($conn, $countEnrollees);
+$totalEnrollees = mysqli_num_rows($enrollees);
+
+$countEnrolled = "SELECT * FROM enrolled;";
+$enrolled = mysqli_query($conn, $countEnrolled);
+$totalEnrolled = mysqli_num_rows($enrolled);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +39,7 @@ $image = $_SESSION['profile'];
     <aside class="sidebar position-fixed top-0 left-0 overflow-auto h-100 float-left" id="show-side-navigation1">
       <div class="sidebar-header d-flex align-items-center px-3 py-4">
         <?php
-          echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Official's Image'>"
+          echo "<img class='rounded-pill img-fluid border-2' width='25%' src=" .  $image . " alt='Admin's Image'>"
         ?>
         <div class="ms-2">
           <h5 class="fs-6 mb-0">
@@ -64,7 +72,7 @@ $image = $_SESSION['profile'];
                 <i class="uil-user-square fs-2 text-center bg-danger rounded-circle"></i>
                 <div class="ms-3">
                   <div class="d-flex align-items-center">
-                    <h3 class="mb-0">Enrollees</h3> <span class="d-block ms-2">count</span>
+                    <h3 class="mb-0">Enrollees</h3> <span class="d-block ms-2"><?echo $enrollees?></span>
                   </div>
                 </div>
               </div>
@@ -74,7 +82,7 @@ $image = $_SESSION['profile'];
                 <i class="uil-user-square fs-2 text-center bg-primary rounded-circle"></i>
                 <div class="ms-3">
                   <div class="d-flex align-items-center">
-                    <h3 class="mb-0">Officially Enrolled</h3> <span class="d-block ms-2">count</span>
+                    <h3 class="mb-0">Officially Enrolled</h3> <span class="d-block ms-2"><?echo $enrolled?></span>
                   </div>
                 </div>
               </div>
@@ -82,11 +90,5 @@ $image = $_SESSION['profile'];
           </div>
         </div>
       </section>
-      <section class="subjects">
-        <div class="container">
-          <h2>&nbsp;For Verifications</h2>
-        </div>
-      </section>
-    </section>
   </body>
 </html>

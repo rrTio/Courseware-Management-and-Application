@@ -14,6 +14,7 @@ if(isset($_POST['btnLoginAdmin'])){
             $middleName = $dashboard['middleName'];
             $lastName = $dashboard['lastName'];
             $adminID = $dashboard['adminID'];
+            $image = $dashboard['imageLocation'];
 
             $fullName = $lastName . ", " . $firstName . " " . $middleName;
         }
@@ -21,6 +22,7 @@ if(isset($_POST['btnLoginAdmin'])){
         $_SESSION['firstName'] = $firstName;
         $_SESSION['fullname'] = $fullName;
         $_SESSION['adminID'] = $adminID;
+        $_SESSION['profile'] = $image;
         header("Location: ../dashboardAdmin.php");
     }
 
@@ -44,6 +46,7 @@ if(isset($_POST['btnLoginFaculty'])){
             $middleName = $dashboard['middleName'];
             $lastName = $dashboard['lastName'];
             $facultyID = $dashboard['facultyID'];
+            $image = $dashboard['imageLocation'];
 
             $fullName = $lastName . ", " . $firstName . " " . $middleName;
         }
@@ -52,6 +55,7 @@ if(isset($_POST['btnLoginFaculty'])){
         $_SESSION['firstName'] = $firstName;
         $_SESSION['fullname'] = $fullName;
         $_SESSION['facultyID'] = $facultyID;
+        $_SESSION['profile'] = $image;
         header("Location: ../dashboardFaculty.php");
     }
 
@@ -76,6 +80,7 @@ if(isset($_POST['btnLoginStudent'])){
             $lastName = $dashboard['lastName'];
             $studentID = $dashboard['studentID'];
             $program = $dashboard['program'];
+            $image = $dashboard['imageLocation'];
 
             $fullName = $lastName . " " . $firstName . " " . $middleName;
         }
@@ -84,6 +89,7 @@ if(isset($_POST['btnLoginStudent'])){
         $_SESSION['fullname'] = $fullName;
         $_SESSION['studentID'] = $studentID;
         $_SESSION['program'] = $program;
+        $_SESSION['profile'] = $image;
         header("Location: ../dashboardStudent.php");
     }
 

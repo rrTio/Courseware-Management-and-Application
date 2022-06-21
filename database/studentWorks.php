@@ -6,8 +6,8 @@ if(isset($_POST['btnDownloadFile'])){
 
     $getLocation = "SELECT * FROM studenttasks WHERE taskID = '$getTaskID';";
     $result = mysqli_query($conn, $getLocation);
-
     $file = mysqli_fetch_assoc($result);
+
     $filepath = '../schoolworks/' . $file['fileName'];
 
     if (file_exists($filepath)) {
@@ -18,7 +18,7 @@ if(isset($_POST['btnDownloadFile'])){
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: ' . filesize('../schoolworks/' . $file['fileName']));
-        readfile('uploads/' . $file['name']);
+        readfile('../schoolworks/' . $file['fileName']);
     }
     header("Location: ../studentOpenSubject.php");
 }   
